@@ -11,6 +11,7 @@
 		var active;
 
 		var clearIniInterval = function(){
+			//console.log('clearIniInterval');
 			$.each(iniTimer, function(i){
 				clearInterval(iniTimer[i]);
 			});
@@ -20,12 +21,15 @@
 		
 		return this.mousedown(function(){
 			
-			clearIniInterval();
+			callback();
 
 			var isiid = setInterval(function(){
+				//console.log(count);
 				if(count > holdTime){
+					clearIniInterval();
 					active = true;
-					intervalTimer = setInterval(function(){ callback(); }, intervalExeTime);
+					console.log('exe')
+					intervalTimer = setInterval(function(){ callback();}, intervalExeTime);
 				}
 				count++;
 			}, 1);
