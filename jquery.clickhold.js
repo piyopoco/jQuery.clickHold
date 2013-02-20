@@ -28,7 +28,6 @@
 				if(count > holdTime){
 					clearIniInterval();
 					active = true;
-					console.log('exe')
 					intervalTimer = setInterval(function(){ callback();}, intervalExeTime);
 				}
 				count++;
